@@ -3,30 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamilton Smart Home | Integration & Automation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Hamilton Smart Home | Your Home, Engineered</title>
+    <style>
+        /* WILLIAMS RACING & ATLASSIAN INSPIRED PALETTE */
+        :root {
+            --williams-blue: #1868DB;
+            --deep-navy: #062847;
+            --atlassian-blue: #0052CC;
+            --white: #FFFFFF;
+            --light-gray: #f4f4f4;
+            --accent-blue: #00A3BF; /* Atlassian tertiary blue */
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--deep-navy);
+            scroll-behavior: smooth;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: var(--deep-navy);
+            color: var(--white);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--williams-blue);
+        }
+
+        .logo { 
+            font-weight: 800; 
+            font-size: 1.4rem; 
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+
+        nav ul { list-style: none; display: flex; margin: 0; }
+        nav ul li { margin-left: 25px; }
+        nav ul li a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        nav ul li a:hover { color: var(--williams-blue); }
+
+        /* HERO SECTION */
+        section#home { 
+            background: linear-gradient(rgba(6, 40, 71, 0.85), rgba(6, 40, 71, 0.85)), url('https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1350&q=80'); 
+            background-size: cover; 
+            background-position: center;
+            color: var(--white); 
+            text-align: center; 
+            padding: 140px 10%; 
+        }
+
+        #home h1 { font-size: 3rem; margin-bottom: 10px; letter-spacing: -1px; }
+        #home p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
+
+        .btn-primary { 
+            background: var(--williams-blue); 
+            color: white; 
+            padding: 15px 35px; 
+            text-decoration: none; 
+            border-radius: 4px; 
+            font-weight: bold; 
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-primary:hover { background: var(--atlassian-blue); transform: translateY(-2px); }
+
+        /* GENERAL SECTIONS */
+        section { padding: 100px 10%; }
+        h2 { 
+            color: var(--atlassian-blue); 
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--williams-blue);
+            margin-top: 10px;
+        }
+
+        /* SERVICES GRID */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .service-card { 
+            background: var(--light-gray); 
+            padding: 40px; 
+            border-radius: 4px; 
+            border-left: 6px solid var(--williams-blue);
+            transition: 0.3s;
+        }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .service-card h3 { color: var(--deep-navy); margin-top: 0; }
+
+        /* CONTACT FORM */
+        .contact-container { max-width: 700px; margin: 40px auto; background: var(--white); padding: 40px; border-radius: 4px; border: 1px solid #eee; }
+        form input, form textarea, form select { width: 100%; padding: 15px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; font-family: inherit; }
+        form button { background: var(--deep-navy); color: white; padding: 18px; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; width: 100%; font-weight: bold; transition: 0.3s; margin-top: 10px; }
+        form button:hover { background: var(--williams-blue); }
+
+        footer { text-align: center; padding: 40px; background: var(--deep-navy); color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+    </style>
 </head>
-<body class="bg-gray-950 text-white font-sans antialiased">
-    <div class="flex items-center justify-center min-h-screen p-6">
-        <div class="max-w-2xl text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
-                Hamilton <span class="text-blue-500">Smart Home</span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-400 mb-8 uppercase tracking-widest">
-                Professional Integration • Security • Networking
-            </p>
-            <div class="h-1 w-20 bg-blue-500 mx-auto mb-8"></div>
-            <p class="text-gray-300 text-lg mb-10 leading-relaxed">
-                Currently modernizing homes across the Hamilton and GTA area. <br>
-                Our full digital presence is launching soon.
-            </p>
-            <div class="bg-gray-900 rounded-lg p-6 border border-gray-800">
-                <p class="text-sm text-gray-500 uppercase font-semibold mb-2">Inquiries</p>
-                <a href="mailto:contact@hamiltonsmarthome.ca" class="text-xl md:text-2xl text-blue-400 hover:text-blue-300 transition-colors">
-                    contact@hamiltonsmarthome.ca
-                </a>
+<body>
+
+    <nav>
+        <div class="logo">Hamilton Smart Home</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <h1>Your Home, Engineered.</h1>
+        <p>Expert engineer-led integration for a stable, secure, and unified environment.</p>
+        <a href="#contact" class="btn-primary">Request a System Audit</a>
+    </section>
+
+    <section id="about">
+        <h2>Engineering Stability</h2>
+        <p>Hamilton Smart Home is an integration firm led by an expert engineer. We bridge the gap between complex software and home hardware, replacing fragmented DIY setups with robust digital foundations.</p>
+        <p>Based in Hamilton, we serve Ancaster, Burlington, and Oakville with a "Network-First" philosophy—ensuring your home stays smart, even when the internet is down.</p>
+    </section>
+
+    <section id="services" style="background-color: #fcfcfc;">
+        <h2>Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>The Invisible Network</h3>
+                <p>Enterprise-grade Wi-Fi mesh optimization and VLAN-segmented security to isolate IoT devices and protect your data.</p>
+            </div>
+            <div class="service-card">
+                <h3>The Secure Perimeter</h3>
+                <p>Privacy-first security cameras with local NVR storage and smart entry management—no cloud dependency required.</p>
+            </div>
+            <div class="service-card">
+                <h3>Unified Dashboard</h3>
+                <p>Consolidating disparate platforms (Nest, Hue, Lutron) into a single, cohesive interface designed for reliability and ease of use.</p>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section id="contact">
+        <div style="text-align: center;">
+            <h2>Get Started</h2>
+            <p>Ready to engineer a more reliable home? Send a message below.</p>
+        </div>
+        <div class="contact-container">
+            <form   action="https://formspree.io/f/xlgjgoyj"
+  method="POST">
+                <input type="hidden" name="_next" value="https://hamiltonsmarthome.ca/#home">
+                
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                
+                <select name="service_interest">
+                    <option value="" disabled selected>Select a Service</option>
+                    <option value="Network Audit">The Invisible Network (Wi-Fi/Networking)</option>
+                    <option value="Security Perimeter">The Secure Perimeter (Security/Cameras)</option>
+                    <option value="Unified Dashboard">Unified Smart Home Integration</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                </select>
+                
+                <textarea name="message" rows="5" placeholder="How can we help engineer your home?" required></textarea>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Hamilton Smart Home | Built with precision in Hamilton, Ontario.
+    </footer>
+<script>
+    // This ensures the form is cleared whenever the page is loaded/revisited
+   window.addEventListener('pageshow', function(event) {
+        const contactForm = document.querySelector('form');
+        // event.persisted is true if the page is loaded from the browser cache (back button)
+        if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+            if (contactForm) {
+                contactForm.reset();
+            }
+        }
+    });
+</script>
 </body>
 </html>
